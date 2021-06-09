@@ -2,11 +2,11 @@ package gabrielnardes.springwebmvc.model;
 
 public class Jedi {
     private String name;
-    private String lastname;
+    private String lastName;
 
-    public Jedi(String name, String lastName) {
+    public Jedi(final String name, final String lastName) {
         this.name = name;
-        this.lastname = lastName;
+        this.lastName = lastName;
     }
 
     public Jedi() {
@@ -16,15 +16,15 @@ public class Jedi {
         return name;
     }
 
-    public void setName(String name) {
+    public void setName(final String name) {
         this.name = name;
     }
 
-    public String getLastname() {
-        return lastname;
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setLastname(String lastname) {
-        this.lastname = lastname;
+    public void setLastName(final String lastName) {
+        this.lastName = lastName;
     }
 }
