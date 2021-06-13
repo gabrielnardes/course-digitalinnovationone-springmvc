@@ -13,12 +13,20 @@ public class JediController {
     @GetMapping("/jedi")
     public ModelAndView jedi() {
         final ModelAndView modelAndView = new ModelAndView();
-
-        modelAndView.setViewName("jedi");
-
         final Jedi luke = new Jedi("Luke", "Sky");
 
+        modelAndView.setViewName("jedi");
         modelAndView.addObject("allJedi", List.of(luke));
+
+        return modelAndView;
+    }
+
+    @GetMapping("/new-jedi")
+    public ModelAndView newJedi() {
+        final ModelAndView modelAndView = new ModelAndView();
+
+        modelAndView.setViewName("new-jedi");
+        modelAndView.addObject("jedi", new Jedi());
 
         return modelAndView;
     }
