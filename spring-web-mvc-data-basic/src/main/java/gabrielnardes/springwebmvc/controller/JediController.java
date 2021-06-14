@@ -1,22 +1,17 @@
-package com.spring.web.controller;
+package gabrielnardes.springwebmvc.controller;
 
-import java.util.Optional;
-
-import javax.validation.Valid;
-
-import com.spring.web.model.Jedi;
-import com.spring.web.repository.JediRepository;
+import gabrielnardes.springwebmvc.model.Jedi;
+import gabrielnardes.springwebmvc.repository.JediRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import javax.validation.Valid;
+import java.util.Optional;
 
 @Controller
 public class JediController {

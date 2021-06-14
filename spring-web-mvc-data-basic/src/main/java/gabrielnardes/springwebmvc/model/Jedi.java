@@ -1,4 +1,4 @@
-package com.spring.web.model;
+package gabrielnardes.springwebmvc.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

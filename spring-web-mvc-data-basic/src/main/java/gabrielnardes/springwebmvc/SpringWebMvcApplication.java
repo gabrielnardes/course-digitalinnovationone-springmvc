@@ -1,12 +1,14 @@
-package com.spring.web;
+package gabrielnardes.springwebmvc;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class WebMvcApplication {
+public class SpringWebMvcApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(WebMvcApplication.class, args);
+		SpringApplication.run(SpringWebMvcApplication.class, args);
+		System.out.println("Server on");
 	}
+
 }
