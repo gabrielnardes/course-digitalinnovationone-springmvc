@@ -54,4 +54,16 @@ public class JediResource {
 
         return ResponseEntity.ok(repository.save(jedi));
     }
+
+    @DeleteMapping("/api/jedi/{id}")
+    public ResponseEntity delete(@PathVariable Long id) {
+        final Optional<Jedi> jedi = repository.findById(id);
+
+        if (jedi.isPresent()) {
+            repository.deleteById(id);
+            return ResponseEntity.noContent().build();
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
 }
