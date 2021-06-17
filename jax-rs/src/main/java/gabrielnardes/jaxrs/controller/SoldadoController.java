@@ -1,13 +1,14 @@
 package gabrielnardes.jaxrs.controller;
 
 import gabrielnardes.jaxrs.controller.request.SoldadoEditRequest;
+import gabrielnardes.jaxrs.controller.response.SoldadoListResponse;
+import gabrielnardes.jaxrs.controller.response.SoldadoResponse;
 import gabrielnardes.jaxrs.dto.Soldado;
 import gabrielnardes.jaxrs.service.SoldadoService;
+import org.springframework.hateoas.CollectionModel;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @RestController
 @RequestMapping("/v1/soldado")
@@ -20,33 +21,34 @@ public class SoldadoController {
     }
 
     @GetMapping
-    public ResponseEntity<List<Soldado>> buscarSoldados() {
-        List<Soldado> soldados = service.buscarSoldados();
-        return ResponseEntity.status(HttpStatus.OK).body(soldados);
+    public ResponseEntity<CollectionModel<SoldadoListResponse>> buscarSoldados() {
+        CollectionModel<SoldadoListResponse> soldadoListResponses = service.buscarSoldados();
+
+        return ResponseEntity.status(HttpStatus.OK).body(soldadoListResponses);
     }
 
-    @GetMapping("/{cpf}")
-    public ResponseEntity<Soldado> buscarSoldado(@PathVariable String cpf) {
-        Soldado soldado = service.buscarSoldado(cpf);
+    @GetMapping("/{id}")
+    public ResponseEntity<SoldadoResponse> buscarSoldado(@PathVariable Long id) {
+        SoldadoResponse soldado = service.buscarSoldado(id);
         return ResponseEntity.status(HttpStatus.OK).body(soldado);
     }
 
     @PostMapping
-    public ResponseEntity<Soldado> criarSoldado(@RequestBody Soldado soldado) {
+    public ResponseEntity criarSoldado(@RequestBody Soldado soldado) {
         service.criarSoldado(soldado);
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 
-    @PutMapping("/{cpf}")
-    public ResponseEntity editarSoldado(@PathVariable String cpf,
+    @PutMapping("/{id}")
+    public ResponseEntity editarSoldado(@PathVariable Long id,
                                         @RequestBody SoldadoEditRequest soldadoEditRequest) {
-        service.alterarSoldado(cpf, soldadoEditRequest);
+        service.alterarSoldado(id, soldadoEditRequest);
         return ResponseEntity.ok().build();
     }
 
-    @DeleteMapping("/{cpf}")
-    public ResponseEntity deletarSoldado(@PathVariable String cpf) {
-        service.deletarSoldado(cpf);
+    @DeleteMapping("/{id}")
+    public ResponseEntity deletarSoldado(@PathVariable Long id) {
+        service.deletarSoldado(id);
         return ResponseEntity.ok().build();
     }
 }
