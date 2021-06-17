@@ -51,4 +51,9 @@ public class SoldadoController {
         service.deletarSoldado(id);
         return ResponseEntity.ok().build();
     }
+
+    @PutMapping("/frente-castelo/{id}")
+    public ResponseEntity frenteCastelo(@PathVariable Long id) {
+        return ResponseEntity.ok().build();
+    }
 }

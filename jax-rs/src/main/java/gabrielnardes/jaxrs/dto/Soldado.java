@@ -5,6 +5,7 @@ public class Soldado {
     private String nome;
     private String raca;
     private String arma;
+    private String status;
 
     public String getCpf() {
         return cpf;
@@ -36,5 +37,13 @@ public class Soldado {
 
     public void setArma(String arma) {
         this.arma = arma;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 }

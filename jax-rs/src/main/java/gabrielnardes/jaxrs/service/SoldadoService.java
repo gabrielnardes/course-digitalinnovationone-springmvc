@@ -29,7 +29,7 @@ public class SoldadoService {
 
     public SoldadoResponse buscarSoldado(Long id) {
         SoldadoEntity soldadoEntity = repository.findById(id).orElseThrow();
-        SoldadoResponse soldadoResponse = objectMapper.convertValue(soldadoEntity, SoldadoResponse.class);
+        SoldadoResponse soldadoResponse = resourceSoldado.criarLinkDetalhe(soldadoEntity);
         return soldadoResponse;
     }
 
