@@ -20,7 +20,7 @@ public class ResourceSoldado {
 
     public SoldadoListResponse criarLink(SoldadoEntity soldadoEntity) {
         SoldadoListResponse soldadoListResponse = objectMapper.convertValue(soldadoEntity, SoldadoListResponse.class);
-        Link link = linkTo(methodOn(SoldadoController.class).buscarSoldado(soldadoEntity.getId())).withRel();
+        Link link = linkTo(methodOn(SoldadoController.class).buscarSoldado(soldadoEntity.getId())).withSelfRel();
         soldadoListResponse.add(link);
 
         return soldadoListResponse;
